@@ -57,7 +57,7 @@ public class slider {
         act.click(sliderHandle).build().perform();
         //move the slider on right side
         moveTheSlider(10, act);
-        Thread.sleep(5000);
+        Thread.sleep(4000);
     }
 
     public void moveTheSlider(int numberOfPixelsToMove, Actions act) {

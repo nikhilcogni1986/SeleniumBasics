@@ -58,7 +58,6 @@ public class RadioButton {
         String expected_Selection = driver.findElement(By.cssSelector("p.groupradiobutton")).getText().trim();
         Assert.assertTrue(expected_Selection.contains("Sex : Male"));
         Assert.assertTrue(expected_Selection.contains("Age group: 0 - 5"));
-
     }
 
     @AfterTest

@@ -48,7 +48,7 @@ public class BootstrapDropdown {
             System.out.println(list_of_option.getText());
             if (list_of_option.getText().contains("Angular")) {
                 list_of_option.click();
-                Thread.sleep(2000);
+                Thread.sleep(3000);
                 break;
             }
         }

@@ -59,6 +59,7 @@ public class AdvancedInteractions {
         act.doubleClick(double_click_btn).perform();
         Thread.sleep(2000);
         Assert.assertTrue(driver.findElement(By.id("doubleClickMessage")).isDisplayed());
+
     }
 
     @Test

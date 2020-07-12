@@ -112,9 +112,6 @@ public class DragDrop {
         Assert.assertTrue(driver.findElement(By.xpath("//div[@id='droppable']//p[contains(text(),'Dropped')]")).isDisplayed());
     }
 
-    //label[@class='dhx_demo-switch__label dhx_label' and @for='checkbox']
-    //span[contains(text(),'Learning DHTMLX Suite UI')]
-    //ul[contains(@class,'dhx_widget dhx_list')]//li[contains(text(),'Ajax in Practice')]
     @AfterTest
     public void closeDriver() {
         //closes the browser instance

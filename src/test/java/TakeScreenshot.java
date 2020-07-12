@@ -41,8 +41,8 @@ public class TakeScreenshot {
         try {
             FileUtils.copyFile(file, new File("F:\\Selenium\\src\\main\\screenshots" + "sample" + "" + System.currentTimeMillis() + ".png"));
 
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException e1) {
+            e1.printStackTrace();
         }
     }
 

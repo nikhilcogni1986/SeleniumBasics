@@ -42,7 +42,6 @@ public class checkboxes {
             driver.findElement(By.xpath("(//input[@type='checkbox'])[1]")).click();
         else
             System.out.println("Checkbox is already selected");
-
     }
 
     @AfterTest

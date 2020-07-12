@@ -34,7 +34,7 @@ public class clickAndHold {
         driver.findElement(By.xpath("//label[@class='dhx_demo-switch__label dhx_label' and @for='checkbox']")).click();
         WebElement source = driver.findElement(By.xpath("//span[contains(text(),'Learning DHTMLX Suite UI')]"));
         WebElement destination = driver.findElement(By.xpath("//ul[contains(@class,'dhx_widget dhx_list')]//li[contains(text(),'Ajax in Practice')]"));
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         Actions act = new Actions(driver);
         act.clickAndHold(source).pause(2000).moveToElement(destination).release().build().perform();
         Thread.sleep(2000);
