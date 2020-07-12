@@ -38,7 +38,7 @@ public class BasicDropDown {
         System.out.println("Select by Index");
         String firstSelectedOption = S1.getFirstSelectedOption().getText();
         System.out.println(firstSelectedOption);
-        Thread.sleep(1000);
+        Thread.sleep(2000);
 
         //select by value
         System.out.println("Select by Value");

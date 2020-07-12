@@ -44,7 +44,7 @@ public class MultipleListTest {
             S1.selectByIndex(2);
             Thread.sleep(2000);
             S1.deselectByValue("Florida");
-            Thread.sleep(2000);
+            Thread.sleep(1000);
             S1.deselectByIndex(2);
 
         } catch (NoSuchElementException e1) {

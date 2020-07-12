@@ -50,7 +50,6 @@ public class HandleWindows {
             }
         }
         // This is to switch to the main window
-
         driver.switchTo().window(mainWindow);
     }
 

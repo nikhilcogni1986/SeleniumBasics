@@ -48,5 +48,6 @@ public class checkboxes {
     public void closeDriver() {
         //closes the browser instance
         driver.quit();
+
     }
 }

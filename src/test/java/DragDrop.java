@@ -108,7 +108,7 @@ public class DragDrop {
 
         Actions act = new Actions(driver);
         act.dragAndDrop(will_revert, destination).build().perform();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         Assert.assertTrue(driver.findElement(By.xpath("//div[@id='droppable']//p[contains(text(),'Dropped')]")).isDisplayed());
     }
 

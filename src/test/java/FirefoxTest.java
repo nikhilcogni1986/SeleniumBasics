@@ -29,5 +29,6 @@ public class FirefoxTest {
     public void closeDriver() {
         //closes the browser instance
         driver.quit();
+
     }
 }

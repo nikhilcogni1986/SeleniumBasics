@@ -37,7 +37,7 @@ public class BootstrapDropdown {
 
         //get the elements from the drop down
         driver.findElement(By.xpath("//button[contains(@class,'multiselect')]")).click();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         List<WebElement> list_of_options = driver.findElements(By.xpath("//ul[contains(@class,'multiselect-container dropdown-menu')]//li//a//label"));
 
         int number_options = list_of_options.size();

@@ -39,5 +39,6 @@ public class getTitle {
     public void closeDriver() {
         //closes the browser instance
         driver.close();
+
     }
 }

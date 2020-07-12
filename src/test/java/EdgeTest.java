@@ -26,5 +26,6 @@ public class EdgeTest {
     public void closeDriver() {
         //closes the browser instance
         driver.quit();
+
     }
 }
