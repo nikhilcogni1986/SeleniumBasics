@@ -62,6 +62,17 @@ public class modalWindow {
         //driver.findElement(By.xpath("(//a[contains(text(),'Save changes')])[2]")).click();
     }
 
+    @Test
+    public void smallModalWindowTest() throws InterruptedException {
+        driver.get("https://demoqa.com/modal-dialogs");
+        driver.findElement(By.id("showSmallModal")).click();
+        Thread.sleep(2000);
+        String modal_text = driver.findElement(By.xpath("//div[@class='modal-content']//div[@class='modal-body']")).getText();
+        System.out.println(modal_text);
+        driver.findElement(By.id("closeSmallModal")).click();
+        Thread.sleep(2000);
+    }
+
     @AfterTest
     public void closeDriver() {
         //closes the browser instance
