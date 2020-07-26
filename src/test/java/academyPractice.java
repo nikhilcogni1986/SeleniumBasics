@@ -17,7 +17,11 @@ public class academyPractice {
     @BeforeTest
     public void setDriver() {
         String workingDirectory = System.getProperty("user.dir");
-        String filePath = workingDirectory + File.separator + File.separator + "\\src\\main\\Resources\\chromedriver.exe";
+        String filePath =
+                workingDirectory
+                        + File.separator
+                        + File.separator
+                        + "\\src\\main\\Resources\\chromedriver.exe";
 
         ChromeOptions options = new ChromeOptions();
         options.setAcceptInsecureCerts(true);
@@ -26,15 +30,18 @@ public class academyPractice {
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
     }
 
     @Test
     public void GreenKartTest() {
         driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
         System.out.println(driver.getTitle());
-        driver.findElement(By.xpath("//input[@placeholder='Search for Vegetables and Fruits']")).sendKeys("Cucumber");
+        driver
+                .findElement(By.xpath("//input[@placeholder='Search for Vegetables and Fruits']"))
+                .sendKeys("Cucumber");
 
-        //get the product name
+        // get the product name
         By productName = By.xpath("//h4[@class='product-name']");
         boolean elementDisplayed = waits.isElementDisplayed(driver, productName);
         if (elementDisplayed) {
@@ -45,7 +52,7 @@ public class academyPractice {
 
     @AfterTest
     public void closeDriver() {
-        //closes the browser instance
+        // closes the browser instance
         driver.close();
     }
 }

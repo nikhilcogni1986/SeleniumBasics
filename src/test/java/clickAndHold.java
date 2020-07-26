@@ -17,7 +17,11 @@ public class clickAndHold {
     @BeforeTest
     public void setDriver() {
         String workingDirectory = System.getProperty("user.dir");
-        String filePath = workingDirectory + File.separator + File.separator + "\\src\\main\\Resources\\chromedriver.exe";
+        String filePath =
+                workingDirectory
+                        + File.separator
+                        + File.separator
+                        + "\\src\\main\\Resources\\chromedriver.exe";
 
         ChromeOptions options = new ChromeOptions();
         options.setAcceptInsecureCerts(true);
@@ -31,9 +35,16 @@ public class clickAndHold {
     @Test
     public void clickAndHoldTest() throws InterruptedException {
         driver.get("https://dhtmlx.com/docs/products/dhtmlxTree/");
-        driver.findElement(By.xpath("//label[@class='dhx_demo-switch__label dhx_label' and @for='checkbox']")).click();
-        WebElement source = driver.findElement(By.xpath("//span[contains(text(),'Learning DHTMLX Suite UI')]"));
-        WebElement destination = driver.findElement(By.xpath("//ul[contains(@class,'dhx_widget dhx_list')]//li[contains(text(),'Ajax in Practice')]"));
+        driver
+                .findElement(
+                        By.xpath("//label[@class='dhx_demo-switch__label dhx_label' and @for='checkbox']"))
+                .click();
+        WebElement source =
+                driver.findElement(By.xpath("//span[contains(text(),'Learning DHTMLX Suite UI')]"));
+        WebElement destination =
+                driver.findElement(
+                        By.xpath(
+                                "//ul[contains(@class,'dhx_widget dhx_list')]//li[contains(text(),'Ajax in Practice')]"));
         Thread.sleep(1000);
         Actions act = new Actions(driver);
         act.clickAndHold(source).pause(2000).moveToElement(destination).release().build().perform();
@@ -42,7 +53,7 @@ public class clickAndHold {
 
     @AfterTest
     public void closeDriver() {
-        //closes the browser instance
+        // closes the browser instance
         driver.close();
     }
 }

@@ -11,9 +11,13 @@ public class EdgeTest {
 
     @Test
     public void edgeBrowserLaunch() {
-        //edge driver version = 83.4103.116
+        // edge driver version = 83.4103.116
         String workingDirectory = System.getProperty("user.dir");
-        String filePath = workingDirectory + File.separator + File.separator + "\\src\\main\\Resources\\msedgedriver.exe";
+        String filePath =
+                workingDirectory
+                        + File.separator
+                        + File.separator
+                        + "\\src\\main\\Resources\\msedgedriver.exe";
         System.out.println("Final file path : " + filePath);
         System.setProperty("webdriver.edge.driver", filePath);
 
@@ -24,8 +28,7 @@ public class EdgeTest {
 
     @AfterTest
     public void closeDriver() {
-        //closes the browser instance
+        // closes the browser instance
         driver.quit();
-
     }
 }

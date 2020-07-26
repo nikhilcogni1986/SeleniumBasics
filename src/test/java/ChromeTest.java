@@ -12,9 +12,13 @@ public class ChromeTest {
 
     @Test
     public void chromeBrowserLaunch() {
-        //chrome driver version = 83.4103.116
+        // chrome driver version = 83.4103.116
         String workingDirectory = System.getProperty("user.dir");
-        String filePath = workingDirectory + File.separator + File.separator + "\\src\\main\\Resources\\chromedriver.exe";
+        String filePath =
+                workingDirectory
+                        + File.separator
+                        + File.separator
+                        + "\\src\\main\\Resources\\chromedriver.exe";
         System.out.println("Final file path : " + filePath);
         System.setProperty("webdriver.chrome.driver", filePath);
 
@@ -23,13 +27,11 @@ public class ChromeTest {
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.get("http://www.google.com");
-
     }
 
     @AfterTest
     public void closeDriver() {
-        //closes the browser instance
+        // closes the browser instance
         driver.quit();
-
     }
 }

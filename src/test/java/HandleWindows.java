@@ -16,7 +16,11 @@ public class HandleWindows {
     @BeforeTest
     public void setDriver() {
         String workingDirectory = System.getProperty("user.dir");
-        String filePath = workingDirectory + File.separator + File.separator + "\\src\\main\\Resources\\chromedriver.exe";
+        String filePath =
+                workingDirectory
+                        + File.separator
+                        + File.separator
+                        + "\\src\\main\\Resources\\chromedriver.exe";
 
         ChromeOptions options = new ChromeOptions();
         options.setAcceptInsecureCerts(true);
@@ -39,7 +43,7 @@ public class HandleWindows {
         // Using Iterator to iterate with in windows
         Iterator<String> itr = window.iterator();
 
-        //loop through the windows
+        // loop through the windows
         while (itr.hasNext()) {
             String childWindow = itr.next();
             // Compare whether the main windows is not equal to child window. If not equal, we will close.
@@ -55,7 +59,7 @@ public class HandleWindows {
 
     @AfterTest
     public void closeDriver() {
-        //closes the browser instance
+        // closes the browser instance
         driver.close();
     }
 }

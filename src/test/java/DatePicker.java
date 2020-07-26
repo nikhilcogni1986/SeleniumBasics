@@ -18,7 +18,11 @@ public class DatePicker {
     @BeforeTest
     public void setDriver() {
         String workingDirectory = System.getProperty("user.dir");
-        String filePath = workingDirectory + File.separator + File.separator + "\\src\\main\\Resources\\chromedriver.exe";
+        String filePath =
+                workingDirectory
+                        + File.separator
+                        + File.separator
+                        + "\\src\\main\\Resources\\chromedriver.exe";
 
         ChromeOptions options = new ChromeOptions();
         options.setAcceptInsecureCerts(true);
@@ -34,18 +38,21 @@ public class DatePicker {
         driver.get("https://demoqa.com/automation-practice-form");
         driver.findElement(By.id("dateOfBirthInput")).click();
 
-        //select the month
-        WebElement month_dropdown = driver.findElement(By.xpath("//select[@class='react-datepicker__month-select']"));
+        // select the month
+        WebElement month_dropdown =
+                driver.findElement(By.xpath("//select[@class='react-datepicker__month-select']"));
         Select month_select = new Select(month_dropdown);
         month_select.selectByVisibleText("June");
 
-        //select the year
-        WebElement year_dropdown = driver.findElement(By.xpath("//select[@class='react-datepicker__year-select']"));
+        // select the year
+        WebElement year_dropdown =
+                driver.findElement(By.xpath("//select[@class='react-datepicker__year-select']"));
         Select year_select = new Select(year_dropdown);
         year_select.selectByValue("2020");
 
-        //get all the dates in an array list
-        List<WebElement> dates = driver.findElements(By.xpath("//div[@class='react-datepicker__month']//div"));
+        // get all the dates in an array list
+        List<WebElement> dates =
+                driver.findElements(By.xpath("//div[@class='react-datepicker__month']//div"));
         System.out.println(dates.size());
 
         for (int i = 0; i < dates.size(); i++) {
@@ -61,7 +68,7 @@ public class DatePicker {
 
     @AfterTest
     public void closeDriver() {
-        //closes the browser instance
+        // closes the browser instance
         driver.close();
     }
 }

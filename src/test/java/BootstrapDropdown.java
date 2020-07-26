@@ -17,7 +17,11 @@ public class BootstrapDropdown {
     @BeforeTest
     public void setDriver() {
         String workingDirectory = System.getProperty("user.dir");
-        String filePath = workingDirectory + File.separator + File.separator + "\\src\\main\\Resources\\chromedriver.exe";
+        String filePath =
+                workingDirectory
+                        + File.separator
+                        + File.separator
+                        + "\\src\\main\\Resources\\chromedriver.exe";
 
         ChromeOptions options = new ChromeOptions();
         options.setAcceptInsecureCerts(true);
@@ -32,18 +36,22 @@ public class BootstrapDropdown {
     public void bootStrapTest() throws InterruptedException {
         driver.get("https://www.jquery-az.com/boots/demo.php?ex=63.0_2");
 
-        //click on the drop down
-        driver.findElement(By.xpath("//button[@class='multiselect dropdown-toggle btn btn-default']")).click();
+        // click on the drop down
+        driver
+                .findElement(By.xpath("//button[@class='multiselect dropdown-toggle btn btn-default']"))
+                .click();
 
-        //get the elements from the drop down
+        // get the elements from the drop down
         driver.findElement(By.xpath("//button[contains(@class,'multiselect')]")).click();
         Thread.sleep(2000);
-        List<WebElement> list_of_options = driver.findElements(By.xpath("//ul[contains(@class,'multiselect-container dropdown-menu')]//li//a//label"));
+        List<WebElement> list_of_options =
+                driver.findElements(
+                        By.xpath("//ul[contains(@class,'multiselect-container dropdown-menu')]//li//a//label"));
 
         int number_options = list_of_options.size();
         System.out.println("Number of options in drop down: " + list_of_options.size());
 
-        //for loop to iterate and find angular element
+        // for loop to iterate and find angular element
         for (WebElement list_of_option : list_of_options) {
             System.out.println(list_of_option.getText());
             if (list_of_option.getText().contains("Angular")) {
@@ -56,7 +64,7 @@ public class BootstrapDropdown {
 
     @AfterTest
     public void closeDriver() {
-        //closes the browser instance
+        // closes the browser instance
         driver.close();
     }
 }

@@ -18,7 +18,11 @@ public class DragDrop {
     @BeforeTest
     public void setDriver() {
         String workingDirectory = System.getProperty("user.dir");
-        String filePath = workingDirectory + File.separator + File.separator + "\\src\\main\\Resources\\chromedriver.exe";
+        String filePath =
+                workingDirectory
+                        + File.separator
+                        + File.separator
+                        + "\\src\\main\\Resources\\chromedriver.exe";
 
         ChromeOptions options = new ChromeOptions();
         options.setAcceptInsecureCerts(true);
@@ -48,18 +52,18 @@ public class DragDrop {
         WebElement drag = driver.findElement(By.xpath("(//div[contains(text(),'Acceptable')])[1]"));
         WebElement drop = driver.findElement(By.xpath("(//div[@id='droppable'])[2]"));
 
-        //get offset for drag element
+        // get offset for drag element
         int xOffset1 = drag.getLocation().getX();
         int yOffset1 = drag.getLocation().getY();
 
         System.out.println("xOffset1--->" + xOffset1 + " yOffset1--->" + yOffset1);
 
-        //get offset for drop element
+        // get offset for drop element
         int xOffset = drop.getLocation().getX();
         int yOffset = drop.getLocation().getY();
         System.out.println("xOffset--->" + xOffset + " yOffset--->" + yOffset);
 
-        //Find the xOffset and yOffset difference to find x and y offset needed in which from object
+        // Find the xOffset and yOffset difference to find x and y offset needed in which from object
         // required to dragged and dropped
         xOffset = (xOffset - xOffset1) + 10;
         yOffset = (yOffset - yOffset1) + 20;
@@ -81,7 +85,8 @@ public class DragDrop {
         Actions act = new Actions(driver);
         act.dragAndDrop(source, outer_draggable).build().perform();
         Thread.sleep(3000);
-        Assert.assertTrue(driver.findElement(By.xpath("//div[@id='notGreedyDropBox']//p")).isDisplayed());
+        Assert.assertTrue(
+                driver.findElement(By.xpath("//div[@id='notGreedyDropBox']//p")).isDisplayed());
     }
 
     @Test
@@ -90,12 +95,14 @@ public class DragDrop {
         driver.findElement(By.id("droppableExample-tab-preventPropogation")).click();
 
         WebElement source = driver.findElement(By.id("dragBox"));
-        WebElement inner_draggable = driver.findElement(By.xpath("//div[@id='notGreedyInnerDropBox']//p"));
+        WebElement inner_draggable =
+                driver.findElement(By.xpath("//div[@id='notGreedyInnerDropBox']//p"));
 
         Actions act = new Actions(driver);
         act.dragAndDrop(source, inner_draggable).build().perform();
         Thread.sleep(3000);
-        Assert.assertTrue(driver.findElement(By.xpath("//div[@id='notGreedyInnerDropBox']//p")).isDisplayed());
+        Assert.assertTrue(
+                driver.findElement(By.xpath("//div[@id='notGreedyInnerDropBox']//p")).isDisplayed());
     }
 
     @Test
@@ -104,17 +111,23 @@ public class DragDrop {
         driver.findElement(By.id("droppableExample-tab-revertable")).click();
 
         WebElement will_revert = driver.findElement(By.xpath("//div[@id='revertable']"));
-        WebElement destination = driver.findElement(By.xpath("//div[@id='droppableExample-tabpane-revertable']//p[contains(text(),'Drop here')]"));
+        WebElement destination =
+                driver.findElement(
+                        By.xpath(
+                                "//div[@id='droppableExample-tabpane-revertable']//p[contains(text(),'Drop here')]"));
 
         Actions act = new Actions(driver);
         act.dragAndDrop(will_revert, destination).build().perform();
         Thread.sleep(2000);
-        Assert.assertTrue(driver.findElement(By.xpath("//div[@id='droppable']//p[contains(text(),'Dropped')]")).isDisplayed());
+        Assert.assertTrue(
+                driver
+                        .findElement(By.xpath("//div[@id='droppable']//p[contains(text(),'Dropped')]"))
+                        .isDisplayed());
     }
 
     @AfterTest
     public void closeDriver() {
-        //closes the browser instance
+        // closes the browser instance
         driver.close();
     }
 }

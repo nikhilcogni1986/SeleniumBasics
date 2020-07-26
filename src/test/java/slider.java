@@ -20,7 +20,11 @@ public class slider {
     @BeforeTest
     public void setDriver() {
         String workingDirectory = System.getProperty("user.dir");
-        String filePath = workingDirectory + File.separator + File.separator + "\\src\\main\\Resources\\chromedriver.exe";
+        String filePath =
+                workingDirectory
+                        + File.separator
+                        + File.separator
+                        + "\\src\\main\\Resources\\chromedriver.exe";
 
         ChromeOptions options = new ChromeOptions();
         options.setAcceptInsecureCerts(true);
@@ -41,7 +45,7 @@ public class slider {
         Actions act = new Actions(driver);
 
         act.clickAndHold(source).moveByOffset(1, 0).release().build().perform();
-        //act.dragAndDropBy(source,1,0).release().build().perform();
+        // act.dragAndDropBy(source,1,0).release().build().perform();
         Thread.sleep(5000);
 
         String sliderValue = driver.findElement(By.xpath("//output[@id='range']")).getText().toString();
@@ -55,7 +59,7 @@ public class slider {
         WebElement sliderHandle = driver.findElement(By.cssSelector("span.ui-slider-handle"));
         Actions act = new Actions(driver);
         act.click(sliderHandle).build().perform();
-        //move the slider on right side
+        // move the slider on right side
         moveTheSlider(10, act);
         Thread.sleep(2000);
     }
@@ -69,7 +73,7 @@ public class slider {
 
     @AfterTest
     public void closeDriver() {
-        //closes the browser instance
+        // closes the browser instance
         driver.close();
     }
 }

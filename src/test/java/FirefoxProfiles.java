@@ -21,7 +21,11 @@ public class FirefoxProfiles {
         System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null");
 
         String workingDirectory = System.getProperty("user.dir");
-        String filePath = workingDirectory + File.separator + File.separator + "\\src\\main\\Resources\\geckodriver.exe";
+        String filePath =
+                workingDirectory
+                        + File.separator
+                        + File.separator
+                        + "\\src\\main\\Resources\\geckodriver.exe";
         System.out.println("Final file path : " + filePath);
         System.setProperty("webdriver.gecko.driver", filePath);
 
@@ -33,7 +37,7 @@ public class FirefoxProfiles {
 
     @AfterTest
     public void closeDriver() {
-        //closes the browser instance
+        // closes the browser instance
         driver.quit();
     }
 }

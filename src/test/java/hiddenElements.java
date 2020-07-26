@@ -16,7 +16,11 @@ public class hiddenElements {
     @BeforeTest
     public void setDriver() {
         String workingDirectory = System.getProperty("user.dir");
-        String filePath = workingDirectory + File.separator + File.separator + "\\src\\main\\Resources\\chromedriver.exe";
+        String filePath =
+                workingDirectory
+                        + File.separator
+                        + File.separator
+                        + "\\src\\main\\Resources\\chromedriver.exe";
 
         ChromeOptions options = new ChromeOptions();
         options.setAcceptInsecureCerts(true);
@@ -31,12 +35,12 @@ public class hiddenElements {
     public void hiddenElementTest() throws InterruptedException {
         driver.get("https://learn.letskodeit.com/p/practice");
 
-        //execute this set of code and you will see element not visible exception
-        //Clicking on the Hide button
+        // execute this set of code and you will see element not visible exception
+        // Clicking on the Hide button
         driver.findElement(By.xpath("//input[@id='hide-textbox']")).click();
         // driver.findElement(By.xpath("//input[@id='displayed-text']")).sendKeys("text345");
 
-        //execute this code to handle above scenario
+        // execute this code to handle above scenario
         JavascriptExecutor js = (JavascriptExecutor) driver;
         // Identifying the element using ID attribute and Entering the value in the text box
         js.executeScript("document.getElementById('displayed-text').value='text123'");
@@ -45,9 +49,8 @@ public class hiddenElements {
 
     @AfterTest
     public void closeDriver() {
-        //closes the browser instance
+        // closes the browser instance
         driver.close();
-
     }
 }
 

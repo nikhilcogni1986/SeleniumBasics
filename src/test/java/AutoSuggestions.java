@@ -17,7 +17,11 @@ public class AutoSuggestions {
     @BeforeTest
     public void setDriver() {
         String workingDirectory = System.getProperty("user.dir");
-        String filePath = workingDirectory + File.separator + File.separator + "\\src\\main\\Resources\\chromedriver.exe";
+        String filePath =
+                workingDirectory
+                        + File.separator
+                        + File.separator
+                        + "\\src\\main\\Resources\\chromedriver.exe";
 
         ChromeOptions options = new ChromeOptions();
         options.setAcceptInsecureCerts(true);
@@ -33,10 +37,11 @@ public class AutoSuggestions {
         driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
         System.out.println(driver.getTitle());
 
-        //Search Ind and Select India
+        // Search Ind and Select India
         driver.findElement(By.id("autosuggest")).sendKeys("Ind");
         Thread.sleep(2000);
-        List<WebElement> auto_options = driver.findElements(By.cssSelector("li[class='ui-menu-item'] a"));
+        List<WebElement> auto_options =
+                driver.findElements(By.cssSelector("li[class='ui-menu-item'] a"));
         for (WebElement auto_option : auto_options) {
             String option_text = auto_option.getText();
             if (option_text.equalsIgnoreCase("India")) {
@@ -49,7 +54,7 @@ public class AutoSuggestions {
 
     @AfterTest
     public void closeDriver() {
-        //closes the browser instance
+        // closes the browser instance
         driver.close();
     }
 }

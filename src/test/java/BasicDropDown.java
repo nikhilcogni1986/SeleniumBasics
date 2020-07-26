@@ -18,7 +18,11 @@ public class BasicDropDown {
     @BeforeTest
     public void setDriver() {
         String workingDirectory = System.getProperty("user.dir");
-        String filePath = workingDirectory + File.separator + File.separator + "\\src\\main\\Resources\\chromedriver.exe";
+        String filePath =
+                workingDirectory
+                        + File.separator
+                        + File.separator
+                        + "\\src\\main\\Resources\\chromedriver.exe";
 
         ChromeOptions options = new ChromeOptions();
         options.setAcceptInsecureCerts(true);
@@ -40,7 +44,7 @@ public class BasicDropDown {
         System.out.println(firstSelectedOption);
         Thread.sleep(2000);
 
-        //select by value
+        // select by value
         System.out.println("Select by Value");
         S1.selectByValue("Monday");
         firstSelectedOption = S1.getFirstSelectedOption().getText();
@@ -68,7 +72,7 @@ public class BasicDropDown {
 
     @AfterTest
     public void closeDriver() {
-        //closes the browser instance
+        // closes the browser instance
         driver.close();
     }
 }

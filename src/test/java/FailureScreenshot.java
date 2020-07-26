@@ -19,7 +19,11 @@ public class FailureScreenshot {
     @BeforeTest
     public void setDriver() {
         String workingDirectory = System.getProperty("user.dir");
-        String filePath = workingDirectory + File.separator + File.separator + "\\src\\main\\Resources\\chromedriver.exe";
+        String filePath =
+                workingDirectory
+                        + File.separator
+                        + File.separator
+                        + "\\src\\main\\Resources\\chromedriver.exe";
 
         ChromeOptions options = new ChromeOptions();
         options.setAcceptInsecureCerts(true);
@@ -43,16 +47,23 @@ public class FailureScreenshot {
     public void tear_down(ITestResult result) {
         if (ITestResult.FAILURE == result.getStatus()) {
             try {
-                //create a reference for the screenshot
+                // create a reference for the screenshot
                 TakesScreenshot ts = ((TakesScreenshot) driver);
                 File source = ts.getScreenshotAs(OutputType.FILE);
-                FileUtils.copyFile(source, new File("F:\\Selenium\\src\\main\\screenshots" + "sample" + "" + System.currentTimeMillis() + ".png"));
+                FileUtils.copyFile(
+                        source,
+                        new File(
+                                "F:\\Selenium\\src\\main\\screenshots"
+                                        + "sample"
+                                        + ""
+                                        + System.currentTimeMillis()
+                                        + ".png"));
             } catch (Exception e1) {
                 e1.getStackTrace();
             }
         }
 
-        //closes the browser instance
+        // closes the browser instance
         driver.quit();
     }
 }

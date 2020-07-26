@@ -16,7 +16,11 @@ public class Alerts {
     @BeforeTest
     public void setDriver() {
         String workingDirectory = System.getProperty("user.dir");
-        String filePath = workingDirectory + File.separator + File.separator + "\\src\\main\\Resources\\chromedriver.exe";
+        String filePath =
+                workingDirectory
+                        + File.separator
+                        + File.separator
+                        + "\\src\\main\\Resources\\chromedriver.exe";
 
         ChromeOptions options = new ChromeOptions();
         options.setAcceptInsecureCerts(true);
@@ -34,13 +38,12 @@ public class Alerts {
         Thread.sleep(2000);
         driver.switchTo().alert().accept();
 
-        //2nd pop up with Ok and cancel
+        // 2nd pop up with Ok and cancel
         driver.findElement(By.xpath("(//button[contains(text(),'Click me!')])[2]")).click();
         Thread.sleep(2000);
         driver.switchTo().alert().accept();
 
-
-        //3rd pop up - confirmation pop up
+        // 3rd pop up - confirmation pop up
         driver.findElement(By.xpath("//button[contains(text(),'Click for Prompt Box')]")).click();
         Thread.sleep(2000);
         Alert alert = driver.switchTo().alert();
@@ -51,8 +54,7 @@ public class Alerts {
 
     @AfterTest
     public void closeDriver() {
-        //closes the browser instance
+        // closes the browser instance
         driver.close();
-
     }
 }

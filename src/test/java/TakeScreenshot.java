@@ -18,7 +18,11 @@ public class TakeScreenshot {
     @BeforeTest
     public void setDriver() {
         String workingDirectory = System.getProperty("user.dir");
-        String filePath = workingDirectory + File.separator + File.separator + "\\src\\main\\Resources\\chromedriver.exe";
+        String filePath =
+                workingDirectory
+                        + File.separator
+                        + File.separator
+                        + "\\src\\main\\Resources\\chromedriver.exe";
 
         ChromeOptions options = new ChromeOptions();
         options.setAcceptInsecureCerts(true);
@@ -33,13 +37,19 @@ public class TakeScreenshot {
     public void getScreenshot() {
         driver.get("https://www.phptravels.net/home");
         takeScreenshot();
-
     }
 
     public void takeScreenshot() {
         File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(file, new File("F:\\Selenium\\src\\main\\screenshots" + "sample" + "" + System.currentTimeMillis() + ".png"));
+            FileUtils.copyFile(
+                    file,
+                    new File(
+                            "F:\\Selenium\\src\\main\\screenshots"
+                                    + "sample"
+                                    + ""
+                                    + System.currentTimeMillis()
+                                    + ".png"));
 
         } catch (IOException e1) {
             e1.printStackTrace();
@@ -48,8 +58,7 @@ public class TakeScreenshot {
 
     @AfterTest
     public void closeDriver() {
-        //closes the browser instance
+        // closes the browser instance
         driver.close();
-
     }
 }
